@@ -101,7 +101,9 @@ class Handler extends ExceptionHandler
                 $response['errors'] = $exception->original['errors'];
                 break;
             default:
-                $response['message'] = ($statusCode == 500) ? 'something:went:wrong' : $exception->getMessage();
+                $response['message'] = ($statusCode == 500) && config('app.debug') ?
+                    'something:went:wrong' :
+                    $exception->getMessage();
                 break;
         }
 
