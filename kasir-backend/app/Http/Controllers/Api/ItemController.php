@@ -19,7 +19,7 @@ class ItemController extends Controller
         $items = new ItemCollection(
             Item::query()
                 ->filters($filters)
-                ->paginate()
+                ->paginate(10)
         );
 
         return api_response(
