@@ -32,5 +32,7 @@ Route::group([
 
 Route::group([ 'middleware' => ['api', 'auth:api'] ], function () {
     Route::apiResource('items', ItemController::class);
+    Route::get('/items/all', [ItemController::class, 'getAll'])->name('items.all');
+
     Route::apiResource('transactions', TransactionController::class);
 });

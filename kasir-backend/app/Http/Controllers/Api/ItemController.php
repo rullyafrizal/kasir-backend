@@ -75,4 +75,19 @@ class ItemController extends Controller
             200
         );
     }
+
+    public function getAll() {
+        $items = new ItemCollection(
+            Item::query()
+                ->get()
+        );
+
+        return api_response(
+            [
+                'items' => $items
+            ],
+            'get:items:success',
+            200
+        );
+    }
 }
