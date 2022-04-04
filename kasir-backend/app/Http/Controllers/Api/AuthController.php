@@ -41,7 +41,13 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        return api_response(
+            [
+                'user' => auth()->user(),
+            ],
+            'auth:check:success',
+            200
+        );
     }
 
     /**
