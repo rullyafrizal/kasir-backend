@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  webserver:
+    container_name: kasir-be
+    image: kasir-backend:latest
+    ports:
+      - "8181:80"
+    env_file:
+      - "./kasir-backend/.env"
